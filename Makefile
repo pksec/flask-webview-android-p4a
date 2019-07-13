@@ -1,9 +1,11 @@
 TARGETS:= *.apk
 
-.PHONY: clean build cleanall
+.PHONY: clean buildEmulator buildDevice cleanall
 
-build:
-	p4a apk --private /home/pksec/sgit/wf-android-app/flaskapp \
+FLASKAPP=/home/YOURUSERNAME/flask-webview-android-p4a/flaskapp
+
+buildEmulator:
+	p4a apk --private $(FLASKAPP) \
 		--package=org.webview.flask \
 		--name "Flask Webview" \
 		--requirements flask\
@@ -11,6 +13,18 @@ build:
 		--dist_name FlaskWebViewApp \
 		--version 0.0.1 \
 		--arch x86 \
+		--permission INTERNET
+
+
+buildDevice:
+	p4a apk --private $(FLASKAPP) \
+		--package=org.webview.flask \
+		--name "Flask Webview" \
+		--requirements flask\
+		--bootstrap=webview \
+		--dist_name FlaskWebViewApp \
+		--version 0.0.1 \
+		--arch armeabi-v7a \
 		--permission INTERNET
 
 clean:
