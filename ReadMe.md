@@ -1,9 +1,9 @@
-# instructions
+# Instructions
 
 ## Package installation 
 Follow the quickstart instructions : https://python-for-android.readthedocs.io/en/latest/quickstart/#installation
 
-- $sudo apt-get install -y build-essential ccache git zlib1g-dev python2.7 python2.7-dev libncurses5:i386 libstdc++6:i386 zlib1g:i386 openjdk-8-jdk unzip ant ccache autoconf libtool
+- sudo apt-get install -y build-essential ccache git zlib1g-dev python2.7 python2.7-dev libncurses5:i386 libstdc++6:i386 zlib1g:i386 openjdk-8-jdk unzip ant ccache autoconf libtool
 
 ## System Info
 - System: ubuntu 19.04 64 bit OS
@@ -13,11 +13,13 @@ Follow the quickstart instructions : https://python-for-android.readthedocs.io/e
 
 - did not find libtinfo.so.5 error
 - apt-cache search libtinfo
+```
     libncurses-dev - developer's libraries for ncurses
     libtinfo-dev - transitional package for libncurses-dev
     libtinfo5 - shared low-level terminfo library (legacy version)
     libtinfo6 - shared low-level terminfo library for terminal handling
     libtinfo6-dbg - debugging/profiling library for the low-level terminfo librar
+```    
 - install the necessary package
 
 ### Persistent Issues
@@ -32,12 +34,12 @@ Follow the quickstart instructions : https://python-for-android.readthedocs.io/e
         - Note: --arch MUST be set to x86 to test your application (APK) in the emulator
 
 - Export their paths in your ~.bashrc. At the time of writing this readme, the following configurations worked.
-
+```
     export ANDROIDSDK="$HOME/android-sdk-tools-linux-4333796"
     export ANDROIDNDK="/home/android-ndk-r17c"
     export ANDROIDAPI="26"  # Target API version of your application
     export NDKAPI="21"  # Minimum supported API version of your application
-
+```
 - $ANDROIDSDK/tools/bin/sdkmanager --list
 - $ANDROIDSDK/tools/bin/sdkmanager "platforms;android-26"
 - $ANDROIDSDK/tools/bin/sdkmanager "build-tools;26.0.3"
@@ -51,9 +53,12 @@ Follow the quickstart instructions : https://python-for-android.readthedocs.io/e
 # Debugging information
 
 If your Application is sucessfully built, but you if you want to debug, then use the following easy method:
+
 - $ANDROIDSDK/platform-tools/adb devices
+```
     List of devices attached
     emulator-5554	device
+```
 - $ANDROIDSDK/platform-tools/adb
 - $ANDROIDSDK/platform-tools/adb logcat | grep python
 
@@ -71,4 +76,3 @@ If your Application is sucessfully built, but you if you want to debug, then use
 - Picture attached.
 
 Have fun.
-
